@@ -1,0 +1,13 @@
+defaultName: Stefan
+
+jwtSignatureSecret: o5KnhuFU8q8bo6qPxG2Z75q3yLlNiVCSOUd0vqbv6X8E8QLUSbP6Uxn7hn2678NZ3sQ1ZKy9ih7jAHXu
+
+database:
+  driverClass: org.h2.Driver
+  user: 
+  password: 
+  url: "jdbc:h2:mem:test;INIT=runscript from 'src/test/resources/delete_and_init.sql'"
+  
+logging:
+  loggers:
+    org.glassfish.jersey.filter.LoggingFilter: INFO

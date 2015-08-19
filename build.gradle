@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.2'
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'eclipse'
+
+mainClassName = 'brach.stefan.yoti.YotiApplication'
+
+// Set our project variables
+project.ext {
+    dropwizardVersion = '0.9.0-rc3'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+        'io.dropwizard:dropwizard-core:' + dropwizardVersion,
+        'io.dropwizard:dropwizard-auth:' + dropwizardVersion,
+        'io.dropwizard:dropwizard-testing:' + dropwizardVersion,
+        'io.dropwizard:dropwizard-jdbi:' + dropwizardVersion,
+        'org.mariadb.jdbc:mariadb-java-client:1.2.0',
+        'com.google.inject:guice:4.0',
+        'org.bitbucket.b_c:jose4j:0.4.4',
+        'commons-validator:commons-validator:1.4.1',
+        'org.passay:passay:1.1.0',
+        'com.h2database:h2:1.4.188',
+        'org.json:json:20141113'
+    )
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+// Configure the shadow jar task
+shadowJar {
+    mergeServiceFiles()
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+}
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
