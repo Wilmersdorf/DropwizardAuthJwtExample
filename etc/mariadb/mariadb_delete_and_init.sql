@@ -20,3 +20,6 @@ CREATE TABLE connections (
   CONSTRAINT FOREIGN KEY (higherId) REFERENCES users (id),
   CONSTRAINT CHECK (lowerId < higherId)
 );
+
+/* insert admin user with password adminpw */
+INSERT INTO users (email, hash, role) VALUES ('admin@test.io','518bd5283161f69a6278981ad00f4b09a2603085f145426ba8800c:8bd85a69ed2cb94f4b9694d67e3009909467769c56094fc0fce5af','ADMIN');
