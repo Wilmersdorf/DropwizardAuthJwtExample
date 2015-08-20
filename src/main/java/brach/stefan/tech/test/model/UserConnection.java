@@ -15,8 +15,8 @@ public class UserConnection {
             this.lowerId = firstId;
             this.higherId = secondId;
         } else if (firstId > secondId) {
-            this.lowerId = firstId;
-            this.higherId = secondId;
+            this.lowerId = secondId;
+            this.higherId = firstId;
         } else {
             throw new IdConflictException();
         }

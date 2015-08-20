@@ -6,7 +6,7 @@ database:
   driverClass: org.h2.Driver
   user: 
   password: 
-  url: "jdbc:h2:mem:test;INIT=runscript from 'src/test/resources/delete_and_init.sql'"
+  url: "jdbc:h2:mem:test;INIT=runscript from 'src/test/resources/h2_delete_and_init.sql'"
   
 logging:
   loggers:

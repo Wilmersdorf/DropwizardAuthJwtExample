@@ -23,6 +23,10 @@ public interface UserDaoImpl extends UserDao {
     User findUserByEmail(@Bind("userEmail") String userEmail);
 
     @Override
+    @SqlQuery("SELECT * FROM users WHERE role = 'NORMAL'")
+    List<User> getAllNormalUsers();
+
+    @Override
     @SqlQuery("SELECT * FROM users WHERE role = 'NORMAL' AND id != :userId")
     List<User> getAllNormalUsersExcept(@Bind("userId") Long userId);
 }

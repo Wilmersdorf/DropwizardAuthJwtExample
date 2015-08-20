@@ -22,12 +22,6 @@ public class JwtReaderServiceImpl implements JwtReaderService {
     UserDao userDao;
 
     public String getEmailFromJwt(String token) throws InvalidJwtException {
-        if (userDao == null) {
-            LOG.info("userDao is null");
-        }
-        if (keys == null) {
-            LOG.info("keys are null");
-        }
         JwtConsumer jwtConsumer = new JwtConsumerBuilder().setEvaluationTime(NumericDate.now())
                 .setVerificationKey(keys.getSignatureKey()).build();
         JwtClaims jwtClaims = jwtConsumer.processToClaims(token);

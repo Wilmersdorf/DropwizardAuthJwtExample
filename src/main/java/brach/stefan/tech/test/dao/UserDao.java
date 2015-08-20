@@ -9,5 +9,7 @@ public interface UserDao {
 
     public User findUserByEmail(String email);
 
+    public List<User> getAllNormalUsers();
+
     public List<User> getAllNormalUsersExcept(Long userId);
 }

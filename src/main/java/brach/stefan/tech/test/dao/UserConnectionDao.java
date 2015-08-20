@@ -11,5 +11,5 @@ public interface UserConnectionDao {
 
     List<UserConnection> getAllUserConnectionsByUser(Long userId);
 
-    List<UserConnection> getAllUserConnections(Long userId);
+    List<UserConnection> getAllUserConnections();
 }

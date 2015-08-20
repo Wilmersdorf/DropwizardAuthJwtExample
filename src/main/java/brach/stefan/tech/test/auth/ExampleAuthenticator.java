@@ -27,10 +27,8 @@ public class ExampleAuthenticator implements Authenticator<String, User> {
         try {
             email = jwtReaderService.getEmailFromJwt(authToken);
         } catch (InvalidJwtException e) {
-            LOG.error("Could not get email from token.", e);
             throw new AuthenticationException(e);
         }
-        // TODO valid email and so on
         User user = userDao.findUserByEmail(email);
         return Optional.fromNullable(user);
     }

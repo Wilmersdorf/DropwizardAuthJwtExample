@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.security.Principal;
 
 import javax.annotation.Priority;
-import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -58,7 +57,7 @@ public class TokenAuthFilter<P extends Principal> extends AuthFilter<String, P> 
                     }
                 } catch (AuthenticationException e) {
                     LOGGER.warn("Error authenticating credentials", e);
-                    throw new InternalServerErrorException();
+                    throw new WebApplicationException(unauthorizedHandler.buildResponse(prefix, realm));
                 }
             }
         } catch (IllegalArgumentException e) {

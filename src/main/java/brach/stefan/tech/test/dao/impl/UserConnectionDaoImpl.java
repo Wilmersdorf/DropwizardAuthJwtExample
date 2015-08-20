@@ -16,15 +16,19 @@ import brach.stefan.tech.test.model.UserConnection;
 @LogSqlFactory
 @RegisterMapper(UserConnectionMapper.class)
 public interface UserConnectionDaoImpl extends UserConnectionDao {
+    @Override
     @SqlUpdate("REPLACE INTO connections (lowerId, higherId) values (:lowerId, :higherId)")
     void insertConnection(@BindBean UserConnection userConnection);
 
+    @Override
     @SqlUpdate("DELETE FROM connections WHERE lowerId =:lowerId AND higherId =:higherId")
     void deleteConnection(@BindBean UserConnection userConnection);
 
+    @Override
     @SqlQuery("SELECT * FROM connections WHERE lowerId =:userId OR higherId =:userId")
     List<UserConnection> getAllUserConnectionsByUser(@Bind("userId") Long userId);
 
-    @SqlQuery("SELECT * FROM connections WHERE lowerId =:userId OR higherId =:userId")
-    List<UserConnection> getAllUserConnections(@Bind("userId") Long userId);
+    @Override
+    @SqlQuery("SELECT * FROM connections")
+    List<UserConnection> getAllUserConnections();
 }

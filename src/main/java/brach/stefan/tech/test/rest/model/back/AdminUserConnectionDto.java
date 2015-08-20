@@ -2,25 +2,43 @@ package brach.stefan.tech.test.rest.model.back;
 
 import java.util.ArrayList;
 
+import javax.annotation.Nullable;
+
 import org.apache.commons.lang3.StringUtils;
 
-public class AdminUserConnectionDto extends UserConnectionDto {
-    private ArrayList<String> connectedTo;
+public class AdminUserConnectionDto {
+    private String email;
+    private ArrayList<String> connectedToEmails = new ArrayList<String>();
 
-    public ArrayList<String> getConnectedTo() {
-        return connectedTo;
+    public AdminUserConnectionDto() {
     }
 
-    public void setConnectedTo(ArrayList<String> connectedTo) {
-        this.connectedTo = connectedTo;
+    public AdminUserConnectionDto(String email) {
+        this.email = email;
     }
 
-    public void addConnectedTo(String email) {
-        if (connectedTo == null) {
-            connectedTo = new ArrayList<String>();
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public ArrayList<String> getConnectedToEmails() {
+        return connectedToEmails;
+    }
+
+    public void setConnectedToEmails(ArrayList<String> connectedToEmails) {
+        this.connectedToEmails = connectedToEmails;
+    }
+
+    public void addConnectedToEmail(@Nullable String email) {
+        if (connectedToEmails == null) {
+            connectedToEmails = new ArrayList<String>();
         }
-        if (!StringUtils.isEmpty(email)) {
-            connectedTo.add(email);
+        if (!StringUtils.isBlank(email)) {
+            connectedToEmails.add(email);
         }
     }
 }
