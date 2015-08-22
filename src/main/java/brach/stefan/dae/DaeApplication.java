@@ -47,20 +47,20 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-public class TechTestApplication extends Application<TechTestConfiguration> {
-    private final static Logger LOG = LoggerFactory.getLogger(TechTestApplication.class);
+public class DaeApplication extends Application<DaeConfiguration> {
+    private final static Logger LOG = LoggerFactory.getLogger(DaeApplication.class);
 
     public static void main(String[] args) throws Exception {
-        new TechTestApplication().run(args);
+        new DaeApplication().run(args);
     }
 
     @Override
-    public void initialize(Bootstrap<TechTestConfiguration> bootstrap) {
+    public void initialize(Bootstrap<DaeConfiguration> bootstrap) {
         // nothing to do yet
     }
 
     @Override
-    public void run(TechTestConfiguration conf, Environment env) throws NoSuchAlgorithmException {
+    public void run(DaeConfiguration conf, Environment env) throws NoSuchAlgorithmException {
         // logging
         env.jersey().register(new LoggingFilter(java.util.logging.Logger.getLogger(LoggingFilter.class.getName()), true));
         // guice injector
@@ -89,7 +89,7 @@ public class TechTestApplication extends Application<TechTestConfiguration> {
         env.jersey().register(new AuthValueFactoryProvider.Binder<User>(User.class));
     }
 
-    private Injector createInjector(TechTestConfiguration conf, Environment env) throws NoSuchAlgorithmException {
+    private Injector createInjector(DaeConfiguration conf, Environment env) throws NoSuchAlgorithmException {
         Keys keys = new KeyBuilderServiceImpl().createKeys(conf);
         Injector injector = Guice.createInjector(new AbstractModule() {
             @Override

@@ -9,11 +9,11 @@ import javax.ws.rs.core.Response;
 import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.junit.Assert;
 
-import brach.stefan.dae.TechTestConfiguration;
+import brach.stefan.dae.DaeConfiguration;
 import brach.stefan.dae.rest.model.send.SignupUserDto;
 
 public class IntTestSignupHelper {
-    public static void signupUser(String email, String password, DropwizardAppRule<TechTestConfiguration> RULE) {
+    public static void signupUser(String email, String password, DropwizardAppRule<DaeConfiguration> RULE) {
         Client client = new JerseyClientBuilder().build();
         SignupUserDto signupUserDto = new SignupUserDto();
         signupUserDto.setEmail(email);

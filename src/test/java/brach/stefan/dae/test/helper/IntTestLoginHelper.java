@@ -11,11 +11,11 @@ import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.json.JSONObject;
 import org.junit.Assert;
 
-import brach.stefan.dae.TechTestConfiguration;
+import brach.stefan.dae.DaeConfiguration;
 import brach.stefan.dae.rest.model.send.LoginUserDto;
 
 public class IntTestLoginHelper {
-    public static String getAuthToken(String email, String password, DropwizardAppRule<TechTestConfiguration> RULE) {
+    public static String getAuthToken(String email, String password, DropwizardAppRule<DaeConfiguration> RULE) {
         Client client = new JerseyClientBuilder().build();
         LoginUserDto loginUserDto = new LoginUserDto();
         loginUserDto.setEmail(email);

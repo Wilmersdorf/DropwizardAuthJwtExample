@@ -9,11 +9,11 @@ import javax.ws.rs.core.Response;
 import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.junit.Assert;
 
-import brach.stefan.dae.TechTestConfiguration;
+import brach.stefan.dae.DaeConfiguration;
 import brach.stefan.dae.rest.model.send.ConnectToUserDto;
 
 public class IntTestConnectHelper {
-    public static void connect(String authToken, String email, boolean connected, DropwizardAppRule<TechTestConfiguration> RULE) {
+    public static void connect(String authToken, String email, boolean connected, DropwizardAppRule<DaeConfiguration> RULE) {
         ConnectToUserDto connectToUserDto = new ConnectToUserDto();
         connectToUserDto.setConnected(connected);
         connectToUserDto.setEmail(email);

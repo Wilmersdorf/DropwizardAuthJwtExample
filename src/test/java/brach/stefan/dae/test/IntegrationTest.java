@@ -5,11 +5,11 @@ import io.dropwizard.testing.junit.DropwizardAppRule;
 
 import org.junit.ClassRule;
 
-import brach.stefan.dae.TechTestApplication;
-import brach.stefan.dae.TechTestConfiguration;
+import brach.stefan.dae.DaeApplication;
+import brach.stefan.dae.DaeConfiguration;
 
 public class IntegrationTest {
     @ClassRule
-    public static final DropwizardAppRule<TechTestConfiguration> RULE = new DropwizardAppRule<TechTestConfiguration>(
-            TechTestApplication.class, ResourceHelpers.resourceFilePath("dae-test-integration.yml"));
+    public static final DropwizardAppRule<DaeConfiguration> RULE = new DropwizardAppRule<DaeConfiguration>(
+            DaeApplication.class, ResourceHelpers.resourceFilePath("dae-test-integration.yml"));
 }

@@ -3,7 +3,7 @@ jwtSignatureSecret: o5KnhuFU8q8bo6qPxG2Z75q3yLlNiVCSOUd0vqbv6X8E8QLUSbP6Uxn7hn26
 database:
   driverClass: org.mariadb.jdbc.Driver
   user: root
-  password: xailabs123
+  password: mypw
   url: jdbc:mariadb://localhost/daedb
   
 logging:

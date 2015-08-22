@@ -8,10 +8,10 @@ import javax.ws.rs.core.Response;
 import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.junit.Assert;
 
-import brach.stefan.dae.TechTestConfiguration;
+import brach.stefan.dae.DaeConfiguration;
 
 public class IntTestGetConnectionsHelper {
-    public static void validate(String authToken, String expected, DropwizardAppRule<TechTestConfiguration> RULE) {
+    public static void validate(String authToken, String expected, DropwizardAppRule<DaeConfiguration> RULE) {
         Client client = new JerseyClientBuilder().build();
         Response response = client.target(String.format("http://localhost:%d/user", RULE.getLocalPort())).request()
                 .header("authToken", authToken).get();

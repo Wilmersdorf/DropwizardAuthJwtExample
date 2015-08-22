@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TechTestConfiguration extends Configuration {
+public class DaeConfiguration extends Configuration {
     @Valid
     @NotNull
     @JsonProperty("database")
