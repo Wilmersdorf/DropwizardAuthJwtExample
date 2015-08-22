@@ -13,7 +13,7 @@ apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'eclipse'
 
-mainClassName = 'brach.stefan.yoti.YotiApplication'
+mainClassName = 'brach.stefan.dae.DaeApplication'
 
 // Set our project variables
 project.ext {
