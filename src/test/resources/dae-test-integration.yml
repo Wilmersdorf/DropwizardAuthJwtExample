@@ -1,0 +1,11 @@
+jwtSignatureSecret: yt1V2tuIYVFrLYZx3lidEe7Xk7SFGoG8b2GH3vAtFOpaYdvrgCOfif5bZkhzujdtLKvdJ2CaY9QXZZ4b
+
+database:
+  driverClass: org.h2.Driver
+  user: 
+  password: 
+  url: "jdbc:h2:mem:test;INIT=runscript from 'src/test/resources/h2_delete_init_add_admin.sql'"
+  
+logging:
+  loggers:
+    org.glassfish.jersey.filter.LoggingFilter: INFO
