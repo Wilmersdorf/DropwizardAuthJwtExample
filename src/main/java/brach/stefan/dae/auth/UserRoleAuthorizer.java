@@ -2,14 +2,15 @@ package brach.stefan.dae.auth;
 
 import io.dropwizard.auth.Authorizer;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import brach.stefan.dae.model.Role;
 import brach.stefan.dae.model.User;
 
-public class ExampleAuthorizer implements Authorizer<User> {
-    private final static Logger LOG = LoggerFactory.getLogger(ExampleAuthorizer.class);
+public class UserRoleAuthorizer implements Authorizer<User> {
+    private final static Logger LOG = LoggerFactory.getLogger(UserRoleAuthorizer.class);
 
     @Override
     public boolean authorize(User user, String role) {
@@ -19,8 +20,8 @@ public class ExampleAuthorizer implements Authorizer<User> {
         } else if (user.getRole() == null) {
             LOG.error("Unable to authorize since user role is null.");
             return false;
-        } else if (role == null) {
-            LOG.error("Unable to authorize since role is null.");
+        } else if (StringUtils.isBlank(role)) {
+            LOG.error("Unable to authorize since role is blank.");
             return false;
         }
         Role roleToEnum = null;

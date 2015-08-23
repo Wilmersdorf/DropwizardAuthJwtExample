@@ -14,8 +14,8 @@ import brach.stefan.dae.service.auth.JwtReaderService;
 import com.google.common.base.Optional;
 import com.google.inject.Inject;
 
-public class ExampleAuthenticator implements Authenticator<String, User> {
-    private final static Logger LOG = LoggerFactory.getLogger(ExampleAuthenticator.class);
+public class AuthTokenAuthenticator implements Authenticator<String, User> {
+    private final static Logger LOG = LoggerFactory.getLogger(AuthTokenAuthenticator.class);
     @Inject
     UserDao userDao;
     @Inject

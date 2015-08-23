@@ -1,5 +1,13 @@
 jwtSignatureSecret: yt1V2tuIYVFrLYZx3lidEe7Xk7SFGoG8b2GH3vAtFOpaYdvrgCOfif5bZkhzujdtLKvdJ2CaY9QXZZ4b
 
+server:
+  applicationConnectors:
+  - type: http 
+    port: 8380
+  adminConnectors:
+  - type: http
+    port: 8381
+
 database:
   driverClass: org.h2.Driver
   user: 

@@ -15,8 +15,8 @@ import org.skife.jdbi.v2.DBI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import brach.stefan.dae.auth.ExampleAuthenticator;
-import brach.stefan.dae.auth.ExampleAuthorizer;
+import brach.stefan.dae.auth.AuthTokenAuthenticator;
+import brach.stefan.dae.auth.UserRoleAuthorizer;
 import brach.stefan.dae.auth.TokenAuthFilter;
 import brach.stefan.dae.dao.UserConnectionDao;
 import brach.stefan.dae.dao.UserDao;
@@ -83,8 +83,8 @@ public class DaeApplication extends Application<DaeConfiguration> {
     private void registerAuthentication(Environment env, Injector injector) {
         env.jersey().register(RolesAllowedDynamicFeature.class);
         final TokenAuthFilter<User> tokenAuthFilter = new TokenAuthFilter.Builder<User>()
-                .setAuthorizer(injector.getInstance(ExampleAuthorizer.class))
-                .setAuthenticator(injector.getInstance(ExampleAuthenticator.class)).buildAuthFilter();
+                .setAuthorizer(injector.getInstance(UserRoleAuthorizer.class))
+                .setAuthenticator(injector.getInstance(AuthTokenAuthenticator.class)).buildAuthFilter();
         env.jersey().register(new AuthDynamicFeature(tokenAuthFilter));
         env.jersey().register(new AuthValueFactoryProvider.Binder<User>(User.class));
     }
