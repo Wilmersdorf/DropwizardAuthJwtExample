@@ -3,6 +3,7 @@ package brach.stefan.dae.auth;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jose4j.jwt.consumer.InvalidJwtException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,12 @@ public class AuthTokenAuthenticator implements Authenticator<String, User> {
         } catch (InvalidJwtException e) {
             throw new AuthenticationException(e);
         }
-        User user = userDao.findUserByEmail(email);
-        return Optional.fromNullable(user);
+        if (StringUtils.isBlank(email)) {
+            LOG.error("Email is blank.");
+            return Optional.absent();
+        } else {
+            User user = userDao.findUserByEmail(email);
+            return Optional.fromNullable(user);
+        }
     }
 }
