@@ -1,0 +1,16 @@
+jwtSignatureSecret: o5KnhuFU8q8bo6qPxG2Z75q3yLlNiVCSOUd0vqbv6X8E8QLUSbP6Uxn7hn2678NZ3sQ1ZKy9ih7jAHXu
+
+server:
+  applicationConnectors:
+  - type: http 
+    port: 80
+
+database:
+  driverClass: org.mariadb.jdbc.Driver
+  user: user
+  password: password
+  url: jdbc:mariadb://xxx.xxx.eu-central-1.rds.amazonaws.com/daedb
+  
+logging:
+  loggers:
+    org.glassfish.jersey.filter.LoggingFilter: INFO

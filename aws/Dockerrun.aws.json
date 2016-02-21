@@ -1,0 +1,20 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "username/dropwizard-auth-jwt-example",
+    "Update": "true"
+  },
+  "Volumes": [
+  ],
+  "Ports": [
+    {
+      "ContainerPort": "80"
+    }
+  ],
+	"containerDefinitions": [
+    {
+	"memory": "1792"
+	}
+],
+  "Logging": "/var/log/"
+}
