@@ -11,9 +11,12 @@ import brach.stefan.dae.service.auth.JwtBuilderService;
 import com.google.inject.Inject;
 
 public class JwtBuilderServiceImpl implements JwtBuilderService {
+    private final Keys keys;
 
     @Inject
-    private Keys keys;
+    public JwtBuilderServiceImpl(Keys keys) {
+        this.keys = keys;
+    }
 
     public String createJwt(String email) throws JoseException {
         JwtClaims claims = new JwtClaims();
@@ -27,5 +30,4 @@ public class JwtBuilderServiceImpl implements JwtBuilderService {
         String jwt = jws.getCompactSerialization();
         return jwt;
     }
-
 }

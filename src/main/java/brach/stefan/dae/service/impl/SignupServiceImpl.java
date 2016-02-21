@@ -23,8 +23,12 @@ import com.google.inject.Inject;
 public class SignupServiceImpl implements SignupService {
     private final static Logger LOG = LoggerFactory.getLogger(SignupServiceImpl.class);
     private final static MyPasswordValidator myPasswordValidator = new MyPasswordValidator();
+    private final UserDao userDao;
+
     @Inject
-    private UserDao userDao;
+    public SignupServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     public Response signup(SignupUserDto signupUserDto) {
         SignupUserDtoValidator.validate(signupUserDto, myPasswordValidator);

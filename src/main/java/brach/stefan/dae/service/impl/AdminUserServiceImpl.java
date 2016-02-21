@@ -19,10 +19,14 @@ import brach.stefan.dae.service.AdminUserService;
 import com.google.inject.Inject;
 
 public class AdminUserServiceImpl implements AdminUserService {
+    private final UserDao userDao;
+    private final UserConnectionDao userConnectionDao;
+
     @Inject
-    private UserDao userDao;
-    @Inject
-    private UserConnectionDao userConnectionDao;
+    public AdminUserServiceImpl(UserDao userDao, UserConnectionDao userConnectionDao) {
+        this.userDao = userDao;
+        this.userConnectionDao = userConnectionDao;
+    }
 
     @Override
     public Response getUsers(User principal) {

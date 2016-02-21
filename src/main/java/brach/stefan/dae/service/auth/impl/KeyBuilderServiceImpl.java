@@ -9,7 +9,6 @@ import brach.stefan.dae.model.Keys;
 import brach.stefan.dae.service.auth.KeyBuilderService;
 
 public class KeyBuilderServiceImpl implements KeyBuilderService {
-
     public Keys createKeys(DaeConfiguration configuration) throws NoSuchAlgorithmException {
         Keys keys = new Keys();
         HmacKey signatureKey = createSignatureKey(configuration.getJwtSignatureSecret());
@@ -20,5 +19,4 @@ public class KeyBuilderServiceImpl implements KeyBuilderService {
     private HmacKey createSignatureKey(String signatureSecret) {
         return new HmacKey(signatureSecret.getBytes());
     }
-
 }

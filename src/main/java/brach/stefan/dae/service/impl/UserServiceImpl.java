@@ -28,10 +28,14 @@ import com.google.inject.Inject;
 
 public class UserServiceImpl implements UserService {
     private final static Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
+    private final UserDao userDao;
+    private final UserConnectionDao userConnectionDao;
+
     @Inject
-    private UserDao userDao;
-    @Inject
-    private UserConnectionDao userConnectionDao;
+    public UserServiceImpl(UserDao userDao, UserConnectionDao userConnectionDao) {
+        this.userDao = userDao;
+        this.userConnectionDao = userConnectionDao;
+    }
 
     @Override
     public Response getUserConnections(User principal) {

@@ -24,10 +24,14 @@ import com.google.inject.Inject;
 
 public class LoginServiceImpl implements LoginService {
     private final static Logger LOG = LoggerFactory.getLogger(LoginServiceImpl.class);
+    private final UserDao userDao;
+    private final JwtBuilderService jwtBuilderService;
+
     @Inject
-    private UserDao userDao;
-    @Inject
-    private JwtBuilderService jwtBuilderService;
+    public LoginServiceImpl(UserDao userDao, JwtBuilderService jwtBuilderService) {
+        this.userDao = userDao;
+        this.jwtBuilderService = jwtBuilderService;
+    }
 
     @Override
     public Response login(LoginUserDto loginUserDto) {
