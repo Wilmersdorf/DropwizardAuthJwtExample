@@ -9,6 +9,6 @@ An example android app to make use of this project, including screenshots, can b
 
 Details about the impementation are described in [wiki/Implementation](https://github.com/Wilmersdorf/DropwizardAuthJwtExample/wiki/Implementation).
 
-Deployment instructions for linux / AWS are listed under [wiki/Deployment-AWS](https://github.com/Wilmersdorf/DropwizardAuthJwtExample/wiki/Deployment-AWS).
+Deployment instructions for AWS EC2 are listed under [wiki/Deployment-AWS](https://github.com/Wilmersdorf/DropwizardAuthJwtExample/wiki/Deployment-AWS).
 
-This project is under development, see [wiki/TODO](https://github.com/Wilmersdorf/DropwizardAuthJwtExample/wiki/TODO).
+Deployment instructions for AWS Elastic Beanstalk with Docker are documented in [wiki/Deployment-Docker-AWS](https://github.com/Wilmersdorf/DropwizardAuthJwtExample/wiki/Deployment-Docker-AWS).
